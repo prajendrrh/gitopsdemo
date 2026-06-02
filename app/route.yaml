@@ -1,0 +1,10 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: imagestream-demo
+spec:
+  to:
+    kind: Service
+    name: imagestream-demo
+  port:
+    targetPort: 8080
