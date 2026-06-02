@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: imagestream-demo
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/prajendrrh/gitops-demo.git
+    targetRevision: main
+    path: app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: imagestream-demo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
