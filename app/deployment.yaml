@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: imagestream-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: imagestream-demo
+  template:
+    metadata:
+      labels:
+        app: imagestream-demo
+    spec:
+      containers:
+        - name: app
+          image: quay.io/rh_ee_prajendr/imagestream-demo:v1
+          ports:
+            - containerPort: 8080
